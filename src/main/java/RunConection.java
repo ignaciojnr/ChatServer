@@ -26,7 +26,12 @@
  *
  * For more information, please refer to [Unlicense](http://unlicense.org).
  */
-import java.io.*;
+
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -64,6 +69,7 @@ public class RunConection implements Runnable{
      * @param socket
      * @param bdChat
      */
+
     public RunConection(Socket socket, ArrayList<ChatMessage> bdChat) {
         this.socket = socket;
         this.BDchat = bdChat;
@@ -169,8 +175,8 @@ public class RunConection implements Runnable{
         dataString.append(new String(buffer, 0, read, StandardCharsets.UTF_8));
         // delet empy space
         String text = dataString.toString()
-                .replaceAll("\r\n","\n")
-                .replaceAll("\n\n","");
+                      .replaceAll("\r\n","\n")
+                      .replaceAll("\n\n","");
         // split on lines and save in list
         String [] vect = text.split("\n");
         for (int i = 0; i < vect.length; i++){

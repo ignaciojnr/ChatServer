@@ -10,7 +10,6 @@
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
@@ -33,6 +32,9 @@ public final class Main {
      */
     private static final int PORT = 9000;
 
+    /**
+     * Chat List
+     */
     private static ArrayList<ChatMessage> bdChat = new ArrayList<ChatMessage>();
 
     /**
@@ -66,7 +68,4 @@ public final class Main {
         }
 
     }
-
-
-
 }
